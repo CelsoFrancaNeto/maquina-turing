@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+
 public class App {
     public static void main(String[] args) throws Exception {
 
@@ -28,9 +29,9 @@ public class App {
             MaquinaTuring mt = new MaquinaTuring(jsonMT, palavra);
 
             if (mt.rodaMaq()) {
-                System.out.println("Sim");
+                System.out.print("Sim");
             } else {
-                System.out.println("Não");
+                System.out.print("Não");
             }
 
         } catch (FileNotFoundException e) {
@@ -38,6 +39,8 @@ public class App {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
         }
     }

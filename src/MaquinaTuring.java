@@ -54,11 +54,12 @@ public class MaquinaTuring {
         this.alfabeto.add(this.vazio); //ateibui vazio ao alfabeto
     }
 
+    // Define os estados finais e iniciais
     public void defineEst(JSONArray estadosFinais, String estadoInicial) {
         for (int i = 0; i < estadosFinais.size(); i++) {
             for (int j = 0; j < estados.size(); j++) {
                 if (((String) estadosFinais.get(i)).equals(estados.get(j).getNome())) {
-                    estados.get(j).setEstFinal(true);
+                    estados.get(j).setEstFinal(true); //Atribui estados finais
                 }
 
             }
@@ -66,12 +67,12 @@ public class MaquinaTuring {
 
         for (int i = 0; i < estados.size(); i++) {
             if (estados.get(i).getNome().equals(estadoInicial)) {
-                this.estadoAtual = estados.get(i);
+                this.estadoAtual = estados.get(i); // Atribui estado inicial
             }
         }
     }
-
-    public void atribuiTransissao(JSONArray transicoes) { // Vai associar as transissoes aos estados
+    // Vai associar as transissoes aos estados
+    public void atribuiTransissao(JSONArray transicoes) { 
         // 0- estado, 1 - simbolo, 2 - prox estado, 3 subSimbolo, 4 - direcao
 
         for (int i = 0; i < estados.size(); i++) {
